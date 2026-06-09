@@ -1,0 +1,120 @@
+{
+  "artifact_type": "shell",
+  "shell_kind": "mixed_web_app",
+  "slug": "shell-mixed-web-app",
+  "name": "Mixed Public + Admin Shell",
+  "version": "0.1.0",
+  "status": "published",
+  "source": {
+    "kind": "github",
+    "repo": "dyapps-codes/shell-mixed-web-app",
+    "ref": "main",
+    "path": "",
+    "uri": "https://github.com/dyapps-codes/shell-mixed-web-app",
+    "derived_from": "template-blank-mixed"
+  },
+  "access_profile": {
+    "app_visibility": "mixed",
+    "auth_scope": "admin_only",
+    "has_public_area": false,
+    "has_admin_area": true,
+    "root_requires_auth": false
+  },
+  "provides": {
+    "framework": "vite-react-ts-tailwind",
+    "routes": ["/", "/admin", "/login", "/forgot-password", "/reset-password"],
+    "mount_points": {
+      "public_pages_dir": "src/pages",
+      "public_entry_file": "src/pages/PublicEntry.tsx",
+      "admin_pages_dir": "src/pages/admin",
+      "routes_file": "src/App.tsx",
+      "public_routes_file": "src/routes/publicRoutes.tsx",
+      "admin_routes_file": "src/routes/adminRoutes.tsx",
+      "auth_routes_file": "src/routes/authRoutes.tsx",
+      "admin_nav_file": "src/config/navigation.ts",
+      "admin_layout_file": "src/components/layout/AdminLayout.tsx",
+      "style_tokens_file": "src/index.css"
+    },
+    "providers": [
+      "DypaiProvider",
+      "QueryClientProvider",
+      "TooltipProvider",
+      "BrowserRouter",
+      "Toaster",
+      "Sonner"
+    ],
+    "shell_helpers": [
+      "cn",
+      "formatCurrency",
+      "formatMoney",
+      "formatDate",
+      "formatDateTime",
+      "formatTime",
+      "getAvatarColor",
+      "initials"
+    ],
+    "ui_primitives": "src/components/ui/*"
+  },
+  "compatible_modules": {
+    "public_surface": true,
+    "private_surface": true,
+    "backend_capability": true,
+    "kits": true
+  },
+  "safe_to_replace": [
+    "src/pages/PublicEntry.tsx",
+    "src/pages/admin/Dashboard.tsx",
+    "src/index.css"
+  ],
+  "preserve_unless_requested": [
+    "src/lib/dypai.ts",
+    "src/pages/Login.tsx",
+    "src/App.tsx",
+    "src/routes/authRoutes.tsx",
+    "src/components/layout/AdminLayout.tsx",
+    "src/components/ui"
+  ],
+  "integration_points": {
+    "public_routes": {
+      "file": "src/routes/publicRoutes.tsx",
+      "marker": "MODULE_PUBLIC_ROUTES"
+    },
+    "admin_routes": {
+      "file": "src/routes/adminRoutes.tsx",
+      "marker": "MODULE_ADMIN_ROUTES"
+    },
+    "admin_navigation": {
+      "file": "src/config/navigation.ts",
+      "marker": "MODULE_ADMIN_NAV_ITEMS"
+    },
+    "admin_titles": {
+      "file": "src/config/navigation.ts",
+      "marker": "MODULE_PAGE_TITLES"
+    }
+  },
+  "discovery_hints": [
+    "Prefer route registry files under src/routes when present.",
+    "Use existing integration markers before editing src/App.tsx.",
+    "Keep admin pages behind the existing protected admin layout."
+  ],
+  "mount_expectations": [
+    "Public surface modules are reachable from a public route.",
+    "Private surface modules are registered in admin routes and admin navigation.",
+    "Style utilities used by installed modules exist in Tailwind config or CSS layers."
+  ],
+  "agent_brief": {
+    "summary": "Mixed-capable shell with login, auth providers, and a protected admin area already wired. It starts with a neutral root entry, not a public landing. Public modules own public website/content only when the user explicitly needs a public surface; private modules own admin surface.",
+    "do_not": [
+      "Do not treat src/pages/PublicEntry.tsx as a marketing landing.",
+      "Do not add public website pages unless the user asks for a public website, public booking/order flow, catalogue, or similar public surface.",
+      "Do not put admin-only screens on public routes.",
+      "Do not make write/admin endpoints public.",
+      "Do not rewrite src/App.tsx to add module pages; add routes in src/routes/publicRoutes.tsx or src/routes/adminRoutes.tsx.",
+      "Do not create a second admin layout; reuse src/components/layout/AdminLayout.tsx and src/config/navigation.ts.",
+      "Do not mention shell/template internals to the end user."
+    ]
+  },
+  "verification": {
+    "commands": ["npm run build"]
+  }
+}
