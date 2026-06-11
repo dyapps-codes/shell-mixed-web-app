@@ -19,10 +19,18 @@ export default {
       },
     },
     extend: {
+      // Fonts resolve through the theme engine vars in src/index.css —
+      // change --font-display / --font-body there (or via a data-theme
+      // preset) and the whole app follows.
       fontFamily: {
-        sans: ["Geist", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["Geist", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["Geist Mono", "ui-monospace", "JetBrains Mono", "monospace"],
+        sans: ["var(--font-body)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["ui-monospace", "JetBrains Mono", "monospace"],
+      },
+      boxShadow: {
+        soft: "var(--shadow-soft)",
+        raised: "var(--shadow-raised)",
+        overlay: "var(--shadow-overlay)",
       },
       colors: {
         border: "hsl(var(--border))",
