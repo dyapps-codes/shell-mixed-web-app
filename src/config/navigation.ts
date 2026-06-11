@@ -45,7 +45,7 @@ function humanizePath(pathname: string) {
 
   return lastSegment
     .split('-')
-    .map((part: string) => part.charAt(0).toUpperCase() + part.slice(1))
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ')
 }
 

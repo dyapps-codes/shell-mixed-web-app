@@ -82,7 +82,7 @@ export function getAvatarColor(seed: string): string {
   for (let i = 0; i < seed.length; i += 1) {
     hash = seed.charCodeAt(i) + ((hash << 5) - hash)
   }
-  return AVATAR_COLORS[Math.abs(hash) % AVATAR_COLORS.length] ?? AVATAR_COLORS[0] ?? 'hsl(var(--muted))'
+  return AVATAR_COLORS[Math.abs(hash) % AVATAR_COLORS.length]
 }
 
 export function initials(value: string | null | undefined): string {
@@ -92,11 +92,9 @@ export function initials(value: string | null | undefined): string {
     .filter(Boolean)
 
   if (parts.length === 0) return 'A'
-  const first = parts[0] ?? ''
-  if (parts.length === 1) return first.slice(0, 2).toUpperCase()
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase()
 
-  const second = parts[1] ?? ''
-  return `${first[0] ?? ''}${second[0] ?? ''}`.toUpperCase() || 'A'
+  return `${parts[0][0]}${parts[1][0]}`.toUpperCase()
 }
 
 export const ALLERGEN_LABELS: Record<string, string> = {

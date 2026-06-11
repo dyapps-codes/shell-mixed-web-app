@@ -12,10 +12,8 @@ const dashboardModule = DashboardModule as {
   default?: ComponentType
 }
 
-const MissingDashboard: ComponentType = () => null
-
 const AdminDashboard =
-  dashboardModule.AdminDashboard ?? dashboardModule.Dashboard ?? dashboardModule.default ?? MissingDashboard
+  dashboardModule.AdminDashboard ?? dashboardModule.Dashboard ?? dashboardModule.default
 
 export const adminRoutes: ShellRoute[] = [
   { path: '/admin', element: <AdminDashboard /> },
