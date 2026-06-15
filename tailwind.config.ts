@@ -69,6 +69,16 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Data-viz series palette (colour-blind-safe, brand-led). Defined in
+        // src/index.css per theme; charts read these via hsl(var(--chart-N)).
+        chart: {
+          1: "hsl(var(--chart-1))",
+          2: "hsl(var(--chart-2))",
+          3: "hsl(var(--chart-3))",
+          4: "hsl(var(--chart-4))",
+          5: "hsl(var(--chart-5))",
+          6: "hsl(var(--chart-6))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
