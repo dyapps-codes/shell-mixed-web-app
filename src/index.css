@@ -269,8 +269,27 @@
     text-rendering: optimizeLegibility;
   }
 
+  /* Native widgets and autofill follow the app scheme (not the OS). */
+  :root {
+    color-scheme: light;
+  }
+  .dark {
+    color-scheme: dark;
+  }
+
   body {
     @apply bg-background text-foreground font-sans;
+  }
+
+  /* Form controls must never inherit the section's text color: a form placed
+     inside a dark hero/CTA/footer would render white text on the input's
+     light background. Pin them to the token pair; utilities still override. */
+  input, textarea, select {
+    color: hsl(var(--foreground));
+    caret-color: hsl(var(--foreground));
+  }
+  input::placeholder, textarea::placeholder {
+    color: hsl(var(--muted-foreground));
   }
 
   /* Headings default to the display font with tight, confident rhythm. */
