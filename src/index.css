@@ -82,6 +82,17 @@
     --input: 40 14% 94%;
     --ring: 22 90% 51%;
 
+    /* Sidebar tokens (admin apps) — chained to core tokens so every
+       data-theme preset and dark mode restyle the sidebar for free. */
+    --sidebar-background: var(--card);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--muted);
+    --sidebar-accent-foreground: var(--foreground);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--ring);
+
     /* Chart series — data-viz palette consumed by charts (recharts via
        hsl(var(--chart-N))). --chart-1 leads with the brand accent so charts
        feel on-brand; the rest are a colour-blind-safe sequence (Okabe-Ito
