@@ -4,6 +4,7 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { DypaiProvider, ProtectedRoute } from '@dypai-ai/client-sdk/react'
+import type { DypaiClient } from '@dypai-ai/client-sdk'
 import { Loader2 } from 'lucide-react'
 import { dypai } from '@/lib/dypai'
 import { AdminLayout } from '@/components/layout/AdminLayout'
@@ -23,7 +24,7 @@ function LoadingScreen() {
 }
 
 const App = () => (
-  <DypaiProvider client={dypai}>
+  <DypaiProvider client={dypai as unknown as DypaiClient}>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />

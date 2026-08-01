@@ -19,5 +19,6 @@
       "@dypai/*": ["./dypai/*"]
     }
   },
-  "include": ["src", "dypai/types", "dypai/flows"]
+  "include": ["src", "dypai/types"],
+  "exclude": ["node_modules", "dypai/flows"]
 }
