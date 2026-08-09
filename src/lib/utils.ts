@@ -5,8 +5,27 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-const DEFAULT_LOCALE = 'es-ES'
+/**
+ * Formatting follows the language the app is built in, taken from `<html lang>`.
+ *
+ * This used to be hardcoded `es-ES`, so an app built for an English speaker
+ * printed `9/8/2026` and `1.234,56 €`. That date is not merely foreign-looking:
+ * to an American reader it says September 8th. Reading the tag instead means
+ * the builder sets the language in one place — the `lang` attribute, which is
+ * also what screen readers and browser translation use — and dates, numbers and
+ * currency follow on their own.
+ *
+ * Falls back to Spanish so an app whose tag is missing keeps formatting exactly
+ * as it did before.
+ */
+const DEFAULT_LOCALE = resolveDocumentLocale()
 const DEFAULT_CURRENCY = 'EUR'
+
+function resolveDocumentLocale(): string {
+  if (typeof document === 'undefined') return 'es-ES'
+  const tag = document.documentElement.getAttribute('lang')?.trim()
+  return tag || 'es-ES'
+}
 
 export function formatCurrency(
   value: number | string | null | undefined,
