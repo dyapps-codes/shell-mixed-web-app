@@ -3,6 +3,8 @@
 @import "@fontsource-variable/fraunces";
 @import "@fontsource-variable/space-grotesk";
 @import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource-variable/newsreader";
+@import "@fontsource-variable/bricolage-grotesque";
 
 /* ── CUSTOM FONT SLOT ────────────────────────────────────────────────
    Give THIS app its OWN typography: add the chosen font HERE (must come
@@ -41,13 +43,20 @@
       font-display, shadow-soft…). Restyle by changing tokens here — do NOT
       hand-recolor individual components.
    Fonts available without installing anything: 'Inter Variable',
-   'Fraunces Variable', 'Space Grotesk Variable', 'Plus Jakarta Sans Variable'.
+   'Fraunces Variable', 'Space Grotesk Variable', 'Plus Jakarta Sans Variable',
+   'Newsreader Variable', 'Bricolage Grotesque Variable'.
    ════════════════════════════════════════════════════════════════════ */
 
 @layer base {
   :root {
-    /* Type — the biggest lever. Display = headings/hero, body = everything else. */
-    --font-display: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+    /* Type — the biggest lever. Display = headings/hero, body = everything else.
+       Two DIFFERENT faces, always. One family in both slots is not a pairing,
+       it is the absence of one, and it is what makes an app read as a template
+       wearing a new colour. This default is the friendly, safe pair; every named
+       theme below has its own voice and none of them reuses another's display
+       face. If the business deserves something else, add it in the slot above
+       and point these two at it. */
+    --font-display: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
     --font-body: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
 
     /* Tinted neutrals (never pure black on pure white). */
@@ -155,7 +164,9 @@
   /* ─── Preset: editorial — warm paper, serif display, rust. ──────────
      Portfolios, agencies, restaurants with character, content sites. */
   [data-theme="editorial"] {
+    /* Magazine: high-contrast serif above, humanist below for long reading. */
     --font-display: "Fraunces Variable", Georgia, serif;
+    --font-body: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
     --background: 38 32% 97%;
     --foreground: 24 22% 14%;
     --card: 38 40% 99%;
@@ -184,8 +195,10 @@
   /* ─── Preset: warm — sand + coral, friendly and human. ──────────────
      Wellness, food, local services, anything that should feel close. */
   [data-theme="warm"] {
-    --font-display: "Plus Jakarta Sans Variable", ui-sans-serif, sans-serif;
-    --font-body: "Plus Jakarta Sans Variable", ui-sans-serif, sans-serif;
+    /* Close: literary serif above, friendly sans below. Hospitality, wellness,
+       any business where people want to feel a person behind it. */
+    --font-display: "Newsreader Variable", Georgia, serif;
+    --font-body: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
     --background: 32 44% 98%;
     --foreground: 20 18% 15%;
     --card: 0 0% 100%;
@@ -215,7 +228,10 @@
   /* ─── Preset: bold — ink + electric, big type, modern. ──────────────
      Startups, creators, products with attitude. */
   [data-theme="bold"] {
-    --font-display: "Space Grotesk Variable", ui-sans-serif, sans-serif;
+    /* Loud: characterful grotesque above, neutral body below, so the headline
+       sings instead of fighting the text. */
+    --font-display: "Bricolage Grotesque Variable", ui-sans-serif, sans-serif;
+    --font-body: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
     --background: 0 0% 98%;
     --foreground: 240 10% 7%;
     --card: 0 0% 100%;
@@ -243,6 +259,10 @@
   /* ─── Preset: precise — cool slate + deep blue, data-first. ─────────
      SaaS, dashboards, fintech, admin-heavy products. */
   [data-theme="precise"] {
+    /* Technical: geometric with its own detail above, Inter below because it is
+       the best of these for dense data and aligned figures. */
+    --font-display: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
     --background: 220 30% 98%;
     --foreground: 224 28% 12%;
     --card: 0 0% 100%;
