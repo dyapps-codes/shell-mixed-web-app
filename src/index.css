@@ -351,3 +351,37 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-entrance, .animate-reveal, .animate-marquee { animation: none !important; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   THIS APP'S SIGNATURE — required, and empty on purpose.
+
+   Define 3–5 classes here that give THIS app a recognisable hand, then use
+   them on every screen: landing, forms, admin, empty states. Leave it empty
+   and the app comes out looking like every other app, because the only thing
+   left to change is the accent colour.
+
+   A signature is not a colour. It is HOW things are done here, and it is the
+   part a human recognises — nobody looks at an app and thinks "hue 22", they
+   think "those hard shadows". So each class should encode a gesture:
+
+     the shadow    hard and offset · low and diffuse · none at all, just a border
+     the ground    grain · grid · gradient · flat
+     the border    heavy · hairline · double · none, separated by space instead
+     the label     uppercase stamp · soft pill · plain text
+     the angle     everything square · slightly rotated · deliberately asymmetric
+
+   Pick a direction that belongs to THIS business and commit to it. Those rows
+   are categories of decision, not a menu to copy: an app whose signature is
+   the same as the last one has no signature.
+
+   Small and structural beats clever. Four classes used a hundred times reads
+   as designed; twenty classes used once reads as noise.
+
+   Name them with a short prefix so they never collide with Tailwind:
+
+     @layer utilities {
+       .sig-shadow { box-shadow: … }
+       .sig-ground { background-image: … }
+       .sig-edge   { border: … }
+     }
+   ══════════════════════════════════════════════════════════════════════ */
