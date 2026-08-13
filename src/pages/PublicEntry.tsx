@@ -1,29 +1,14 @@
-import { Link } from 'react-router-dom'
-import { ArrowRight, LockKeyhole } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-
+/**
+ * SCAFFOLDING — delete this file once `/` has a real page.
+ *
+ * It exists so the router resolves before anything is built. It is not a design
+ * and it is not a starting point: it survived byte-for-byte into a generated
+ * laundry app, sitting there as dead English copy under a lock icon while the
+ * real home page lived somewhere else entirely.
+ *
+ * So it says nothing, in no language, and looks like the placeholder it is.
+ * Whatever replaces `/` should replace THIS FILE, not park beside it.
+ */
 export function PublicEntry() {
-  return (
-    <main className="flex min-h-screen items-center justify-center bg-background px-4 py-10">
-      <section className="w-full max-w-sm space-y-6 text-center">
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-md border bg-muted/40 text-muted-foreground">
-          <LockKeyhole className="h-5 w-5" />
-        </div>
-
-        <div className="space-y-2">
-          <h1 className="text-2xl font-semibold tracking-tight">Workspace ready</h1>
-          <p className="text-sm leading-6 text-muted-foreground">
-            Sign in to access the private app area. Public pages can be added when the
-            product needs them.
-          </p>
-        </div>
-
-        <Button asChild className="w-full">
-          <Link to="/login">
-            Sign in <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Button>
-      </section>
-    </main>
-  )
+  return <main className="min-h-screen bg-background" aria-hidden />
 }
