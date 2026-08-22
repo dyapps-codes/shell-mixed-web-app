@@ -105,6 +105,7 @@
   "agent_brief": {
     "summary": "Mixed-capable shell with login, auth providers, and a protected admin area already wired. It starts with a neutral root entry, not a public landing. Public modules own public website/content only when the user explicitly needs a public surface; private modules own admin surface.",
     "do_not": [
+      "Do not add a full-page spinner, splash, or HTML #splash. The public surface first-paints from static chrome and the admin area waits with SessionFrame only.",
       "Do not treat src/pages/PublicEntry.tsx as a marketing landing.",
       "Do not add public website pages unless the user asks for a public website, public booking/order flow, catalogue, or similar public surface.",
       "Do not put admin-only screens on public routes.",

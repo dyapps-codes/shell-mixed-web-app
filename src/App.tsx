@@ -5,23 +5,15 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { DypaiProvider, ProtectedRoute } from '@dypai-ai/client-sdk/react'
 import type { DypaiClient } from '@dypai-ai/client-sdk'
-import { Loader2 } from 'lucide-react'
 import { dypai } from '@/lib/dypai'
 import { AdminLayout } from '@/components/layout/AdminLayout'
+import { SessionFrame } from '@/components/layout/SessionFrame'
 import { adminRoutes } from '@/routes/adminRoutes'
 import { authRoutes } from '@/routes/authRoutes'
 import { publicRoutes } from '@/routes/publicRoutes'
 import NotFound from './pages/NotFound'
 
 const queryClient = new QueryClient()
-
-function LoadingScreen() {
-  return (
-    <div className="flex h-screen items-center justify-center bg-background">
-      <Loader2 className="h-6 w-6 animate-spin text-primary" />
-    </div>
-  )
-}
 
 const App = () => (
   <DypaiProvider client={dypai as unknown as DypaiClient}>
@@ -54,7 +46,7 @@ const App = () => (
             <Route
               element={
                 <ProtectedRoute
-                  loadingComponent={<LoadingScreen />}
+                  loadingComponent={<SessionFrame />}
                   unauthenticatedComponent={<Navigate to="/login" replace />}
                 >
                   <AdminLayout />

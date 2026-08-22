@@ -5,48 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App</title>
     <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-
-      #splash {
-        position: fixed;
-        inset: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        background: #fcfbf8;
-        font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
-        z-index: 9999;
-      }
-
-      .app-splash-logo {
-        width: 28px;
-        height: 28px;
-        border-radius: 999px;
-        border: 3px solid #dbe3ef;
-        border-top-color: #2563eb;
-        animation: spin 0.8s linear infinite;
-      }
-
-      .app-splash-sub {
-        font-size: 0.7rem;
-        font-weight: 500;
-        letter-spacing: 0;
-        line-height: 1;
-        color: #64748b;
-      }
-
-      @keyframes spin {
-        to { transform: rotate(360deg); }
+      html, body, #root { min-height: 100%; }
+      body { margin: 0; background: #fcfbf8; color: #1d1e24; }
+      #first-paint { min-height: 100vh; background: #fcfbf8; }
+      #first-paint header {
+        height: 64px;
+        border-bottom: 1px solid rgba(29, 30, 36, 0.08);
       }
     </style>
   </head>
   <body>
+    <!-- First paint is the page, not a loader. Never add #splash / Loading. -->
     <div id="root">
-      <div id="splash">
-        <span class="app-splash-logo" aria-hidden="true"></span>
-        <span class="app-splash-sub">Loading</span>
+      <div id="first-paint">
+        <header></header>
       </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
