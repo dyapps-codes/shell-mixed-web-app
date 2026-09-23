@@ -68,7 +68,7 @@
     "zod": "^4.4.1"
   },
   "devDependencies": {
-    "@dypai-ai/flow": "^0.7.5",
+    "@dypai-ai/flow": "0.7.18",
     "@types/node": "^25.6.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
